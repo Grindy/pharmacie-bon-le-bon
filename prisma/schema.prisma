@@ -11,6 +11,8 @@ enum Role {
   UTILISATEUR
 }
 
+
+
 //
 // UTILISATEURS
 //
@@ -34,6 +36,7 @@ model Profil {
   utilisateurId  String      @unique
   prenom         String?
   nom            String?
+  genre          String?
   telephone      String?
   adresse        String?
 
