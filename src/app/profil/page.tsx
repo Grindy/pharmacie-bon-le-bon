@@ -1,9 +1,11 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 
 export default function ProfilClient() {
   // États simples pour gérer les préférences de communication
+  const router = useRouter();
   const [isMarketingSubscribed, setIsMarketingSubscribed] = useState(false);
   const [isSmsSubscribed, setIsSmsSubscribed] = useState(true);
 
@@ -14,6 +16,19 @@ export default function ProfilClient() {
         <h1 className="text-4xl font-bold text-green-700 [.colorblind_&]:text-blue-700 mb-8">
           Mon Profil Client
         </h1>
+
+        <div className="w-full bg-green-700 rounded-xl p-6 shadow-lg border border-gray-100 mb-8 flex items-center justify-between [.colorblind_&]:bg-white">
+          <div>
+            <p className="text-2xl font-bold text-yellow-100 [.colorblind_&]:text-blue-700">Bonjour, Alice!</p>
+            <p className="text-white font-bold mt-1 [.colorblind_&]:text-blue-700">
+              Points BonLeBon récoltés :{" "}
+              <span className="font-bold text-yellow-100 text-2xl  italic pl-2 [.colorblind_&]:text-blue-800">480</span>
+            </p>
+          </div>
+          <button onClick={() => router.push("/recompenses")} className="bg-[#FFF5C3] hover:bg-[#fde047] text-gray-900 font-bold py-3 px-6 rounded-lg transition-colors">
+            Échanger mes points
+          </button>
+        </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {/* Section 1 : Informations Personnelles */}
