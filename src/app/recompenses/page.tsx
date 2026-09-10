@@ -2,7 +2,17 @@
 
 import React, { useState } from "react";
 
-const REWARDS = [
+type Reward = {
+  id: string;
+  title: string;
+  description: string;
+  points: number;
+  remaining: number;
+  badge: string | null;
+  badgeColor: string;
+};
+
+const REWARDS: Reward[] = [
   {
     id: "cadeau-premium",
     title: "Emballage cadeau premium",
@@ -36,6 +46,7 @@ export default function RecompensesPage() {
   const [userPoints] = useState(480);
   const [currentPage, setCurrentPage] = useState(1);
   const totalPages = 3;
+  const [selectedReward, setSelectedReward] = useState<Reward | null>(null);
 
   return (
     <div className="min-h-screen text-gray-900 font-sans pb-12">
@@ -91,7 +102,10 @@ export default function RecompensesPage() {
                 Plus que {reward.remaining} offres restantes
               </p>
 
-              <button className="w-full bg-[#FFF5C3] hover:bg-[#fde047] text-gray-900 font-bold py-3 rounded-lg transition-colors">
+              <button
+                onClick={() => setSelectedReward(reward)}
+                className="w-full bg-[#FFF5C3] hover:bg-[#fde047] text-gray-900 font-bold py-3 rounded-lg transition-colors"
+              >
                 Échanger
               </button>
             </div>
@@ -120,6 +134,39 @@ export default function RecompensesPage() {
             &gt;
           </button>
         </div>
+
+        {selectedReward && (
+          <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50 px-4">
+            <div className="bg-white rounded-xl shadow-lg border border-gray-100 max-w-md w-full p-6">
+              <h3 className="text-xl font-bold text-green-700 [.colorblind_&]:text-blue-800 mb-3">
+                Confirmer l'échange
+              </h3>
+              <p className="text-gray-700 mb-6">
+                Échangez vos points pour{" "}
+                <span className="font-semibold">{selectedReward.title}</span> ?
+                <br />
+                <br />
+                Il sera expédié à l'adresse que nous avons à votre dossier.
+              </p>
+              <div className="flex gap-3">
+                <button
+                  onClick={() => setSelectedReward(null)}
+                  className="flex-1 border border-gray-200 text-gray-700 font-bold py-3 rounded-lg hover:bg-gray-50 transition-colors"
+                >
+                  Annuler
+                </button>
+                <button
+                  onClick={() => {
+                    setSelectedReward(null);
+                  }}
+                  className="flex-1 bg-[#FFF5C3] hover:bg-[#fde047] text-gray-900 font-bold py-3 rounded-lg transition-colors"
+                >
+                  Confirmer
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
       </main>
     </div>
   );
