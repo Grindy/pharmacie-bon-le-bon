@@ -10,8 +10,27 @@ export default function ProfilClient() {
   const [isSmsSubscribed, setIsSmsSubscribed] = useState(true);
 
   return (
-    <div className="min-h-screen text-gray-900 font-sans pb-12">
+    <div
+  className="min-h-screen font-sans pb-12"
+  style={{
+    background: "var(--background)",
+    color: "var(--foreground)"
+  }}
+>
+
       <main className="max-w-6xl mx-auto px-4 pt-10">
+                {/* AVERTISSEMENT UTILISATEUR TEMPORAIRE */}
+        <div
+          className="p-4 rounded-lg mb-8 border"
+          style={{
+            background: "var(--card)",
+            borderColor: "var(--warning)",
+            color: "var(--warning)",
+          }}
+        >
+          <h3 className="font-semibold text-lg mb-1">Utilisateur temporaire</h3>
+          <p className="text-sm opacity-90">Vous consultez actuellement un dossier utilisateur temporaire. L’intégration avec le système d’authentification doit être complétée afin d’afficher les informations du véritable utilisateur connecté.</p>
+        </div>
         {/* Titre de la page */}
         <h1 className="text-4xl font-bold text-green-700 [.colorblind_&]:text-blue-700 mb-8">
           Mon Profil Client
@@ -78,6 +97,27 @@ export default function ProfilClient() {
                   <EditIcon /> Édit
                 </button>
               </div>
+              <div className="flex items-center justify-between bg-gray-50 border border-gray-200 rounded-md p-2">
+              
+              <span className="text-gray-600 font-medium w-24">Genre</span>
+
+              <input
+                type="text"
+                name="genre"
+                defaultValue="Non-Binaire"
+                className="bg-transparent flex-1 focus:outline-none"
+              />
+
+              <button className="text-gray-400 hover:text-gray-700 ml-2 flex items-center gap-1 text-sm">
+              </button>
+            
+
+
+  <button className="text-gray-400 hover:text-gray-700 ml-2 flex items-center gap-1 text-sm">
+    <EditIcon /> Édit
+  </button>
+</div>
+
             </div>
 
             <button className="w-full bg-[#FFF5C3] hover:bg-[#fde047] text-gray-900 font-bold py-3 rounded-lg transition-colors">

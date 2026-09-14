@@ -1,8 +1,13 @@
-import { prisma } from "@/lib/prisma";
+// Si vous n'utilisez pas prisma sur cette page pour le moment, 
+// vous pouvez supprimer cette ligne pour éviter les erreurs de type "unused import"
+import { prisma } from "@/lib/prisma"; 
+import BanniereSondage from "./components/BanniereSondage";
 
 export default async function Page() {
   return (
-    <section className="space-y-10" style={{ color: "var(--foreground)" }}>
+    <section className="space-y-10 pb-28" style={{ color: "var(--foreground)" }}>
+      {/* Ajout de pb-28 dans la section ci-dessus pour l'espace de la banderole en bas */}
+      
       {/* HERO */}
       <div
         className="rounded-xl p-10 shadow-lg"
@@ -38,6 +43,9 @@ export default async function Page() {
           <p style={{ color: "var(--foreground)" }}>Magasinez les articles à rabais.</p>
         </a>
       </div>
+
+      {/* Affichage de la banderole */}
+      <BanniereSondage />
     </section>
   );
 }

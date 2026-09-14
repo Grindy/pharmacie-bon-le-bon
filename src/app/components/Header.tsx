@@ -93,13 +93,13 @@ export default function Header() {
         {/* RIGHT — Actions + Hamburger + Toggle Daltonien */}
         <div className="flex items-center gap-4 whitespace-nowrap flex-shrink-0 ml-6">
 
-          {/* Connexion / Enregistrer */}
+          
           <div className="hidden connexion:flex flex-col text-xs font-bold underline">
             <Link href="/connexion" className="hover:opacity-80">ME CONNECTER</Link>
             <Link href="/enregistrer" className="hover:opacity-80">CRÉER MON COMPTE</Link>
           </div>
 
-          {/* Toggle Daltonien */}
+
           <button
             onClick={() => setColorblind(!colorblind)}
             className={`px-3 py-1.5 rounded font-semibold text-xs transition bg-white ${
@@ -109,7 +109,7 @@ export default function Header() {
             Contraste Élevé : {colorblind ? "ON" : "OFF"}
           </button>
 
-          {/* Hamburger */}
+
           <button
             className="text-4xl leading-none contact:hidden"
             onClick={() => setOpen(!open)}
@@ -119,7 +119,7 @@ export default function Header() {
         </div>
       </nav>
 
-      {/* Menu mobile */}
+
       {open && (
         <div className={`px-6 py-4 space-y-2 text-lg transition-colors duration-300 ${
           colorblind ? "bg-blue-900" : "bg-green-800"
