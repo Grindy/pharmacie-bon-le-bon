@@ -10,7 +10,7 @@ type PointsContextType = {
 const PointsContext = createContext<PointsContextType | undefined>(undefined);
 
 export function PointsProvider({ children }: { children: ReactNode }) {
-  const [points, setPoints] = useState(480);
+  const [points, setPoints] = useState(88);
   return (
     <PointsContext.Provider value={{ points, setPoints }}>
       {children}
