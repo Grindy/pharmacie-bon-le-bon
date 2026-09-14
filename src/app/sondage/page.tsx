@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+import { usePoints } from "@/app/context/PointsContext"
 // Décommentez si vous souhaitez rediriger vers une page distincte :
 // import { useRouter } from "next/navigation";
 
@@ -9,7 +10,7 @@ export default function PageSondage() {
   // const router = useRouter();
   const [estSoumis, setEstSoumis] = useState(false);
   const [numeroCommande, setNumeroCommande] = useState("");
-  const [pointsFidelite, setPointsFidelite] = useState(12); // Solde fictif actuel
+  const { points: pointsFidelite, setPoints: setPointsFidelite } = usePoints(); // remplace useState(12)
   const [pointAjoute, setPointAjoute] = useState(false);
 
   // Fonction pour gérer l'envoi du formulaire
