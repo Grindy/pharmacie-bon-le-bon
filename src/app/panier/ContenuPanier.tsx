@@ -78,7 +78,7 @@ export default function ContenuPanier({ panier }: PanierProps) {
     <div className={`space-y-6 ${isPending ? "opacity-60 pointer-events-none transition-opacity" : ""}`}>
       {/* Entête avec bouton vider */}
       <div className="flex justify-between items-center">
-        <span className="text-gray-600">{items.reduce((sum, item) => sum + item.quantite, 0)} article(s) dans le panier</span>
+        <span className="text-gray-400">{items.reduce((sum, item) => sum + item.quantite, 0)} article(s) dans le panier</span>
         <button onClick={handleViderPanier} className="text-red-600 hover:text-red-800 text-sm font-semibold underline transition cursor-pointer">
           Vider mon panier
         </button>
@@ -88,7 +88,7 @@ export default function ContenuPanier({ panier }: PanierProps) {
       <div className="bg-[var(--card)] rounded-[var(--radius)] shadow-[var(--shadow)] overflow-x-auto">
         <table className="w-full text-left border-collapse">
           <thead>
-            <tr className="border-b border-gray-200 bg-gray-50 text-gray-700 font-semibold text-sm">
+            <tr className="border-b border-gray-200 bg-gray-50 text-gray-700 font-semibold text-sm text-">
               <th className="p-4">Produits</th>
               <th className="p-4 text-center">Qté</th>
               <th className="p-4 text-right">Prix unitaire</th>
@@ -121,7 +121,7 @@ export default function ContenuPanier({ panier }: PanierProps) {
                       <button onClick={() => handleModifierQuantite(item.id, -1)} className="px-2.5 py-1 bg-gray-100 hover:bg-gray-200 text-gray-700 font-bold transition" title="Réduire">
                         -
                       </button>
-                      <span className="px-3 py-1 font-semibold text-sm min-w-[2.5rem] text-center">{item.quantite}</span>
+                      <span className="px-3 py-1 text-white font-semibold text-sm min-w-[2.5rem] text-center [.colorblind_&]:text-blue-900">{item.quantite}</span>
                       <button onClick={() => handleModifierQuantite(item.id, 1)} className="px-2.5 py-1 bg-gray-100 hover:bg-gray-200 text-gray-700 font-bold transition" title="Augmenter">
                         +
                       </button>
@@ -129,10 +129,10 @@ export default function ContenuPanier({ panier }: PanierProps) {
                   </td>
 
                   {/* Prix Unitaire */}
-                  <td className="p-4 text-right font-medium">{item.produit.prix.toFixed(2)} $</td>
+                  <td className="p-4 text-right font-medium text-white [.colorblind_&]:text-black">{item.produit.prix.toFixed(2)} $</td>
 
                   {/* Prix Final pour cet article */}
-                  <td className="p-4 text-right font-bold text-[var(--accent-dark)]">{prixTotalProduit.toFixed(2)} $</td>
+                  <td className="p-4 text-right font-bold text-white [.colorblind_&]:text-black text-[var(--accent-dark)]">{prixTotalProduit.toFixed(2)} $</td>
 
                   {/* Bouton de suppression individuelle */}
                   <td className="p-4 text-center">
@@ -152,24 +152,24 @@ export default function ContenuPanier({ panier }: PanierProps) {
         <div className="w-full md:w-96 bg-[var(--card)] p-6 rounded-[var(--radius)] shadow-[var(--shadow)] space-y-3">
           <h2 className="text-lg font-bold border-b border-gray-200 pb-2 mb-3">Récapitulatif</h2>
 
-          <div className="flex justify-between text-gray-700">
+          <div className="flex justify-between text-gray-400 [.colorblind_&]:text-blue-900">
             <span>Total produits (HT)</span>
             <span className="font-semibold">{sousTotal.toFixed(2)} $</span>
           </div>
 
-          <div className="flex justify-between text-gray-600 text-sm">
+          <div className="flex justify-between text-gray-400 text-sm [.colorblind_&]:text-blue-900">
             <span>TPS (5 %)</span>
             <span>{tps.toFixed(2)} $</span>
           </div>
 
-          <div className="flex justify-between text-gray-600 text-sm">
+          <div className="flex justify-between text-gray-400 text-sm [.colorblind_&]:text-blue-900">
             <span>TVQ (9,975 %)</span>
             <span>{tvq.toFixed(2)} $</span>
           </div>
 
           <hr className="border-gray-200 my-2" />
 
-          <div className="flex justify-between text-lg font-bold text-[var(--accent-dark)]">
+          <div className="flex justify-between text-lg font-bold text-[var(--accent-dark)] [.colorblind_&]:text-blue-900">
             <span>Total avec taxes</span>
             <span>{totalAvecTaxes.toFixed(2)} $</span>
           </div>
