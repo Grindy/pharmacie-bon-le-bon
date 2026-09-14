@@ -2,10 +2,12 @@
 
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
+import {usePoints} from "@/app/context/PointsContext"
 
 export default function ProfilClient() {
   // États simples pour gérer les préférences de communication
   const router = useRouter();
+  const {points} = usePoints();
   const [isMarketingSubscribed, setIsMarketingSubscribed] = useState(false);
   const [isSmsSubscribed, setIsSmsSubscribed] = useState(true);
 
@@ -22,7 +24,7 @@ export default function ProfilClient() {
             <p className="text-2xl font-bold text-yellow-100 [.colorblind_&]:text-blue-700">Bonjour, Alice!</p>
             <p className="text-white font-bold mt-1 [.colorblind_&]:text-blue-700">
               Points BonLeBon récoltés :{" "}
-              <span className="font-bold text-yellow-100 text-2xl  italic pl-2 [.colorblind_&]:text-blue-800">480</span>
+              <span className="font-bold text-yellow-100 text-2xl  italic pl-2 [.colorblind_&]:text-blue-800">{points}</span>
             </p>
           </div>
           <button onClick={() => router.push("/recompenses")} className="bg-[#FFF5C3] hover:bg-[#fde047] text-gray-900 font-bold py-3 px-6 rounded-lg transition-colors">

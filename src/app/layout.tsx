@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import "./globals.css";
 import Link from "next/link";
 import Header from "./components/Header";
+import { PointsProvider } from "./context/PointsContext";
 
 export const metadata = {
   title: "Pharmacie Bon Le Bon",
@@ -13,12 +14,13 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <html lang="fr">
       <body className="flex flex-col min-h-screen bg-[var(--background)] text-[var(--foreground)]">
 
+
         {/* HEADER */}
         <Header />
 
         {/* CONTENU */}
         <main className="flex-1 px-4 sm:px-16 pt-24">
-          {children}
+          <PointsProvider>{children}</PointsProvider>
         </main>
 
         {/* FOOTER */}
