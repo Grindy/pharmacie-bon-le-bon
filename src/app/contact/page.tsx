@@ -121,7 +121,7 @@ export default function ContactPage() {
                   className="w-full rounded-md p-3 border outline-none focus:ring-2"
                   style={{
                     background: "var(--background)",
-                    color: "var(--input)",
+                    color: "var(--inputlight)",
                     borderColor: "var(--accent)",
                   }}
                   placeholder="Jean Dupont"
@@ -142,7 +142,7 @@ export default function ContactPage() {
                   className="w-full rounded-md p-3 border outline-none focus:ring-2"
                   style={{
                     background: "var(--background)",
-                    color: "var(--input)",
+                    color: "var(--inputlight)",
                     borderColor: "var(--accent)",
                   }}
                   placeholder="jean.dupont@exemple.com"
@@ -161,7 +161,7 @@ export default function ContactPage() {
                   className="w-full rounded-md p-3 border outline-none focus:ring-2"
                   style={{
                     background: "var(--background)",
-                    color: "var(--input)",
+                    color: "var(--inputlight)",
                     borderColor: "var(--accent)",
                   }}
                 >
@@ -187,7 +187,7 @@ export default function ContactPage() {
                   className="w-full rounded-md p-3 border outline-none resize-none focus:ring-2"
                   style={{
                     background: "var(--background)",
-                    color: "var(--input)",
+                    color: "var(--inputlight)",
                     borderColor: "var(--accent)",
                   }}
                   placeholder="Comment pouvons-nous vous aider aujourd'hui ?"

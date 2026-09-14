@@ -18,7 +18,7 @@ export default async function CataloguePage({ searchParams }: { searchParams: Pr
   const [categories, { produits, totalPages, page }] = await Promise.all([getCategories(), getProduits({ categorie: categorieActive, page: pageDemandee })]);
 
   return (
-    <div className="flex flex-col md:flex-row gap-8">
+    <div className="flex flex-col md:flex-row  gap-8">
       {/* CATÉGORIES — environ 1/5 de l'écran */}
       <aside className="w-full md:w-1/5 shrink-0">
         <div className="bg-[var(--card)] rounded-[var(--radius)] shadow-[var(--shadow)] p-4 md:sticky md:top-24">

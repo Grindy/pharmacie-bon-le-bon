@@ -33,7 +33,7 @@ export default async function CirculairePage({ searchParams }: { searchParams: P
 
       {/* HERO */}
       <section className="relative border-b border-[var(--accent-dark)] px-6 py-16 sm:py-20">
-        <div aria-hidden className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-[var(--accent)] blur-3xl" />
+
 
         <div className="relative mx-auto max-w-5xl">
           <span className="inline-flex items-center gap-2 rounded-full bg-[var(--decor-cream)] px-4 py-1.5 text-sm font-bold tracking-wide text-[var(--decor-cream-text)]">

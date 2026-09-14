@@ -60,15 +60,15 @@ export default function ProfilClient() {
 
             <div className="grid grid-cols-2 gap-4 mb-4">
               <div>
-                <label className="block text-sm font-semibold mb-1">Prénom</label>
+                <label className="block text-black text-sm font-semibold mb-1">Prénom</label>
                 <input
-                  type="text"
+                  type="text "
                   defaultValue="Alice"
-                  className="w-full bg-gray-50 border border-gray-200 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-green-600 [.colorblind_&]:focus:ring-blue-700"
+                  className="w-full  bg-gray-50 border border-gray-200 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-green-600 [.colorblind_&]:focus:ring-blue-700"
                 />
               </div>
               <div>
-                <label className="block text-sm font-semibold mb-1">Nom</label>
+                <label className="block text-black text-sm font-semibold mb-1">Nom</label>
                 <input
                   type="text"
                   defaultValue="Tremblay"
@@ -135,7 +135,7 @@ export default function ProfilClient() {
 
             <div className="border-b border-gray-100 pb-4 mb-4 flex justify-between items-start">
               <div>
-                <p className="font-bold">Alice Tremblay</p>
+                <p className="font-bold text-black">Alice Tremblay</p>
                 <p className="text-gray-600 mt-1">12 Rue des Érables, Sainte-Julienne</p>
               </div>
               <div className="flex space-x-3 text-sm">
@@ -169,11 +169,11 @@ export default function ProfilClient() {
                   </span>
                 </div>
                 <p className="text-xs text-gray-500 mb-3">Date : 26.01.2023</p>
-                <p className="text-sm font-medium">Advil 200mg</p>
+                <p className="text-sm font-medium text-gray-500">Advil 200mg</p>
                 <p className="text-xs text-gray-500 mb-2">2 x 8.99$</p>
                 <div className="mt-4 pt-2 border-t border-green-200 [.colorblind_&]:border-blue-200 flex justify-between items-center font-bold">
-                  <span>Total :</span>
-                  <span>29.97$</span>
+                  <span className="text-gray-500">Total :</span>
+                  <span className="text-gray-500">29.97$</span>
                 </div>
               </div>
 
@@ -186,10 +186,10 @@ export default function ProfilClient() {
                   </span>
                 </div>
                 <p className="text-xs text-gray-500 mb-3">Date : 28.01.2023</p>
-                <p className="text-sm font-medium mb-2">Vitamine C 500mg</p>
+                <p className="text-sm font-medium mb-2 text-gray-500">Vitamine C 500mg</p>
                 <div className="mt-8 pt-2 border-t border-gray-200 flex justify-between items-center font-bold">
-                  <span>Total :</span>
-                  <span>29.97$</span>
+                  <span className="text-gray-500">Total :</span>
+                  <span className="text-gray-500">29.97$</span>
                 </div>
               </div>
             </div>
