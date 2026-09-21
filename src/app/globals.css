@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-/* Palette du logo (Tailwind 4) */
+
 @theme {
   --color-miel: #fddd4a;
   --color-ambre: #f9ae18;
@@ -13,13 +13,23 @@
   --largeur-colonne: 780px;
 }
 
+.entete-logo {
+  flex-shrink: 0;
+  border: none;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.entete-logo:hover {
+  transform: scale(1.1);
+}
 
 .accueil,
 .entete-contenu {
   max-width: var(--largeur-colonne);
 }
 
-/* Taille du texte : tout le site est en rem, donc on change juste le html */
 html,
 body {
   margin: 0;
@@ -32,7 +42,7 @@ html.texte-gros {
   --largeur-colonne: 1000px;
 }
 
-/* ---------- Header ---------- */
+/* header */
 .entete {
   background-color: var(--color-ambre);
   border-bottom: 4px solid var(--color-encre);

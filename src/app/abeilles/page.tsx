@@ -1,6 +1,5 @@
 import Image from "next/image";
 
-// Les blocs de la page. "cote" dit de quel côté va l'image.
 const blocs = [
   {
     titre: "Les héroïnes du projet",
@@ -28,7 +27,6 @@ const blocs = [
 export default function Abeilles() {
   return (
     <div className="accueil">
-      {/* Même bannière que l'accueil */}
       <section className="accueil-banniere">
         <Image
           src="/abeilles-banniere.jpg"
@@ -53,7 +51,6 @@ export default function Abeilles() {
               {bloc.titre}
             </h2>
 
-            {/* Si l'image est à droite, on ajoute la classe "inverse" */}
             <div
               className={
                 bloc.cote === "droite"

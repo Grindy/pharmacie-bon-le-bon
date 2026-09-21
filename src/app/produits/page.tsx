@@ -1,12 +1,11 @@
 import Image from "next/image";
 
-// Les produits. Pour en ajouter un, copie un objet du tableau.
 const produits = [
   {
     nom: "Miel brut",
     image: "/produit-1.jpg",
     alt: "Pot de miel brut",
-    description: "Texte à venir.",
+    description: "Récolté au cœur de nos forêts nordiques, notre miel brut boréal est extrait à froid pour préserver toute sa richesse naturelle. Pur, non filtré et gorgé de la flore sauvage d'ici, il vous offre une texture authentique et des arômes boisés uniques. Un véritable trésor sauvage de notre miellerie, directement du rayon à votre cuillère.",
     format: 500,
     prix: 13.00,
     enStock: true,
@@ -18,7 +17,7 @@ const produits = [
     nom: "Miel barraté",
     image: "/produit-2.jpg",
     alt: "Pot de miel barraté",
-    description: "Texte à venir.",
+    description: "Crémeux à souhait et d'une douceur incomparable, notre miel boréal baraté est travaillé à froid selon une méthode artisanale subtile. Ce brassage lent transforme les cristaux naturels du miel brut en une texture veloutée, ultra-onctueuse et facile à tartiner, sans jamais altérer ses propriétés nutritionnelles.",
     format: 500,
     prix: 15.00,
     enStock: true,
@@ -30,7 +29,7 @@ const produits = [
     nom: "Caramel au miel",
     image: "/produit-3.jpg",
     alt: "Pot de caramel au miel",
-    description: "Texte à venir.",
+    description: "Gourmand, riche et 100 % naturel, notre caramel au miel marie la douceur de notre miel boréal à l'onctuosité de la crème pure. Cuit à feu doux selon une recette artisanale, il dévoile une texture nappante et un goût réconfortant aux notes subtilement ambrées, sans aucun sucre raffiné ajouté.",
     format: 250,
     prix: 7.50,
     enStock: false,
@@ -43,7 +42,6 @@ const produits = [
 export default function Produits() {
   return (
     <div className="accueil">
-      {/* Même bannière que les autres pages */}
       <section className="accueil-banniere">
         <Image
           src="/produits-banniere.jpg"
@@ -60,7 +58,6 @@ export default function Produits() {
           <section key={produit.nom} className="accueil-section">
             <h2 className="accueil-titre">{produit.nom}</h2>
 
-            {/* Image toujours à gauche */}
             <div className="accueil-boite boite-image">
               <div className="boite-image-photo">
                 <Image
@@ -72,7 +69,7 @@ export default function Produits() {
                 />
               </div>
 
-              {/* Colonne d'informations à droite */}
+              {/* infos de droite */}
               <div className="boite-image-texte">
                 <p>{produit.description}</p>
 

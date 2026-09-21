@@ -7,7 +7,7 @@ type AccueilProps = {
 export default function Accueil({ onNavigate }: AccueilProps) {
   return (
     <div className="accueil">
-      {/* Image de ruches qui prend toute la largeur */}
+      {/* image sur toute la largeur */}
       <section className="accueil-banniere">
         <Image
         src="/ruches.jpg"
@@ -19,7 +19,7 @@ export default function Accueil({ onNavigate }: AccueilProps) {
         />
       </section>
 
-      {/* Sections de texte */}
+      {/* textes */}
       <div className="accueil-sections">
         <section className="accueil-section">
           <h2 className="accueil-titre">Qui sommes-nous?</h2>
@@ -28,7 +28,7 @@ export default function Accueil({ onNavigate }: AccueilProps) {
           </div>
         </section>
 
-        {/* Ce titre est aligné à droite, comme sur le Figma */}
+  
         <section className="accueil-section">
           <h2 className="accueil-titre accueil-titre-droite">Notre mission</h2>
           <div className="accueil-boite">
@@ -47,7 +47,7 @@ export default function Accueil({ onNavigate }: AccueilProps) {
                 Nous nous efforçons également de créer de nouveaux produits à valeur ajoutée. Cette année nous sommes fiers de pouvoir offrir des produits de caramel à base de miel ainsi que du miel barraté, en espérant que ces produits soient à la hauteur de la matière brut que nos abeilles produisent!
             </p>
 
-            {/* Bouton en bas à droite de la boîte */}
+            {/* bouton produits*/}
             <button
               className="btn-nav accueil-bouton"
               onClick={() => onNavigate("produits")}

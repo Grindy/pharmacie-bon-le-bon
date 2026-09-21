@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useState } from "react";
 
-// Les pages de la SPA. "accueil" n'a pas de bouton, on y va avec le logo.
+
 type Page = "accueil" | "produits" | "abeilles";
 
 type HeaderProps = {
@@ -19,7 +19,7 @@ export default function Header({ pageActive, onNavigate }: HeaderProps) {
     const nouvelEtat = !texteGros;
     setTexteGros(nouvelEtat);
 
-    // On met ou enlève une classe sur <html>, le CSS s'occupe du reste
+
     if (nouvelEtat) {
       document.documentElement.classList.add("texte-gros");
     } else {
@@ -30,7 +30,7 @@ export default function Header({ pageActive, onNavigate }: HeaderProps) {
   return (
     <header className="entete">
       <div className="entete-contenu">
-        {/* Logo (cliquable, ramène à l'accueil) */}
+        {/* Logo*/}
         <button
           className="entete-logo"
           onClick={() => onNavigate("accueil")}
