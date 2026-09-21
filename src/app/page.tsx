@@ -1,51 +1,29 @@
-// Si vous n'utilisez pas prisma sur cette page pour le moment, 
-// vous pouvez supprimer cette ligne pour éviter les erreurs de type "unused import"
-import { prisma } from "@/lib/prisma"; 
-import BanniereSondage from "./components/BanniereSondage";
+"use client";
 
-export default async function Page() {
+import { useState } from "react";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import Accueil from "./accueil/page";
+import Abeilles from "./abeilles/page";
+import Produits from "./produits/page";
+
+type Page = "accueil" | "produits" | "abeilles";
+
+export default function Home() {
+  // La page affichée en ce moment
+  const [page, setPage] = useState<Page>("accueil");
+
   return (
-    <section className="space-y-10 pb-28" style={{ color: "var(--foreground)" }}>
-      {/* Ajout de pb-28 dans la section ci-dessus pour l'espace de la banderole en bas */}
-      
-      {/* HERO */}
-      <div
-        className="rounded-xl p-10 shadow-lg"
-        style={{
-          background: "var(--accent)",
-          color: "var(--background)",
-        }}
-      >
-        <h1 className="text-4xl font-bold mb-4">Bienvenue à la Pharmacie Bon Le Bon</h1>
-        <p className="text-lg opacity-90">Votre pharmacie de quartier, maintenant accessible en ligne.</p>
-      </div>
+    <div className="app">
+      <Header pageActive={page} onNavigate={setPage} />
 
-      {/* SECTIONS */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <a href="/catalogue" className="shadow-md rounded-xl p-6 hover:shadow-lg transition" style={{ background: "var(--card)" }}>
-          <h2 className="text-xl font-semibold mb-2" style={{ color: "var(--accent-dark)" }}>
-            Catalogue
-          </h2>
-          <p style={{ color: "var(--foreground)" }}>Consultez nos produits disponibles.</p>
-        </a>
+      <main className="contenu">
+        {page === "accueil" && <Accueil onNavigate={setPage} />}
+        {page === "produits" && <Produits/>}
+        {page === "abeilles" && <Abeilles />}
+      </main>
 
-        <a href="/panier" className="shadow-md rounded-xl p-6 hover:shadow-lg transition" style={{ background: "var(--card)" }}>
-          <h2 className="text-xl font-semibold mb-2" style={{ color: "var(--accent-dark)" }}>
-            Panier
-          </h2>
-          <p style={{ color: "var(--foreground)" }}>Gérez les articles que vous souhaitez acheter.</p>
-        </a>
-
-        <a href="/circulaire" className="shadow-md rounded-xl p-6 hover:shadow-lg transition" style={{ background: "var(--card)" }}>
-          <h2 className="text-xl font-semibold mb-2" style={{ color: "var(--accent-dark)" }}>
-            Circulaire
-          </h2>
-          <p style={{ color: "var(--foreground)" }}>Magasinez les articles à rabais.</p>
-        </a>
-      </div>
-
-      {/* Affichage de la banderole */}
-      <BanniereSondage />
-    </section>
+      <Footer />
+    </div>
   );
 }

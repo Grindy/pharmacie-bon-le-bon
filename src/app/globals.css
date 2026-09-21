@@ -1,167 +1,287 @@
 @import "tailwindcss";
 
-/* ============================
-   BREAKPOINTS
-   ============================ */
+/* Palette du logo (Tailwind 4) */
 @theme {
-  --breakpoint-connexion: 36rem;
-  --breakpoint-catalogue: 45rem;
-  --breakpoint-circulaire: 50rem;
-  --breakpoint-ressources: 60rem;
-  --breakpoint-panier: 65rem;
-  --breakpoint-dossier: 72rem;
-  --breakpoint-contact: 77rem;
-  --breakpoint-hamburger: 77rem;
-  --breakpoint-b600: 600px;
+  --color-miel: #fddd4a;
+  --color-ambre: #f9ae18;
+  --color-brule: #e57f2e;
+  --color-encre: #111111;
+  --color-aile: #c9e1e8;
 }
 
-/* ============================
-   THEME PRINCIPAL
-   ============================ */
 :root {
-  --background: #f3f4f6;
-  --foreground: #38475e;
-  --card: #ffffff;
-
-  --accent: #047857;
-  --accent-dark: #0d8664;
-
-  --radius: 8px;
-  --shadow: 0 4px 12px rgba(0,0,0,0.1);
-
-  --label: #111827;
-  --placeholder: #858585;
-  --input: #3d3d3d;
-  --inputlight: #d1d1d1;
-
-  /* ============================
-     COULEURS SPÉCIFIQUES CIRCULAIRE
-     ============================ */
-
-  /* Terracotta (bande décorative, badge "Cette semaine") */
-  --decor-terracotta: #8B4A2B;
-
-  /* Crème (badge circulaire) */
-  --decor-cream: #FBECA0;
-  --decor-cream-text: #5B3A1E;
-
-  /* Fond des cards circulaire — version lisible */
-  /* Ancien: #12321F (trop foncé) */
-  --decor-surface: #1E4D33; /* vert pharmacie plus clair */
+  --largeur-colonne: 780px;
 }
 
-/* ============================
-   THEME DALTONIEN ULTRA CONTRASTE (AAA+)
-   ============================ */
-.colorblind {
-  --background: #ffffff;
-  --foreground: #000000;
-  --card: #ffffff;
 
-  --accent: #0000ff;
-  --accent-dark: #0000aa;
-
-  --success: #005500;
-  --warning: #aa7700;
-  --error: #990000;
-
-  --label: #000000;
-  --placeholder: #555555;
-  --input: #000000;
-
-  --radius: 0px;
-  --shadow: none;
-
-  /* Circulaire en mode daltonien */
-  --decor-terracotta: #000000;
-  --decor-cream: #ffffff;
-  --decor-cream-text: #000000;
-  --decor-surface: #ffffff; /* fond clair lisible */
+.accueil,
+.entete-contenu {
+  max-width: var(--largeur-colonne);
 }
 
-/* ============================
-   CONTRASTE OS (prefers-contrast)
-   ============================ */
-@media (prefers-contrast: more) {
-  :root {
-    --background: #ffffff;
-    --foreground: #000000;
-    --accent: #0000ff;
-    --accent-dark: #0000aa;
-    --placeholder: #555555;
-    --input: #000000;
-  }
-}
-
-/* ============================
-   TAILWIND THEME INLINE
-   ============================ */
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-/* ============================
-   MODE SOMBRE
-   ============================ */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #e5e7eb;
-    --card: #1a1a1a;
-
-    /* Circulaire en mode sombre */
-    --decor-surface: #163a2a; /* version sombre mais lisible */
-  }
-}
-
-/* ============================
-   BASE
-   ============================ */
+/* Taille du texte : tout le site est en rem, donc on change juste le html */
+html,
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  width: 100%;
 }
 
-input::placeholder {
-  color: var(--placeholder);
-  opacity: 1;
+html.texte-gros {
+  font-size: 20px;
+  --largeur-colonne: 1000px;
 }
 
-input {
-  color: var(--input);
+/* ---------- Header ---------- */
+.entete {
+  background-color: var(--color-ambre);
+  border-bottom: 4px solid var(--color-encre);
 }
 
-.inputlight {
-  color: var(--inputlight);
+.entete-contenu {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 0 auto;
+  padding: 0.75rem 1rem;
 }
 
-/* ============================
-   ANIMATION BADGE
-   ============================ */
-@keyframes badge-pop {
-  0% {
-    opacity: 0;
-    transform: scale(0.5) translateY(4px);
+.entete-gauche {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.entete-titre {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--color-encre);
+}
+
+.entete-nav {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+/* Boutons de navigation */
+.btn-nav {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.5rem 0.75rem;
+  border: none;
+  border-radius: 2rem;
+  background-color: var(--color-brule);
+  color: var(--color-encre);
+  font-weight: bold;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.btn-nav:hover {
+  background-color: var(--color-brule);
+}
+
+.btn-nav-actif {
+  background-color: var(--color-encre);
+  color: var(--color-miel);
+}
+
+/* Bouton A+ / A- (rond) */
+.btn-taille {
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 3px solid var(--color-encre);
+  border-radius: 50%;
+  background-color: var(--color-brule);
+  color: var(--color-encre);
+  font-weight: 800;
+  cursor: pointer;
+  margin-left: auto;
+}
+
+.btn-taille:hover {
+  background-color: var(--color-miel);
+}
+
+/* Footer */
+
+.pied {
+  padding: 0.5rem 1rem;
+  background-color: var(--color-ambre);
+  /* Bande noire au-dessus du footer (4px), comme celle du header */
+  border-top: 4px solid var(--color-encre);
+  text-align: center;
+  color: var(--color-encre);
+}
+
+/* Le conteneur qui contient Header + contenu + Footer */
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Le contenu principal prend tout l'espace libre */
+/* Le gris pâle va d'un bord à l'autre, sans espace au-dessus */
+
+/* ---------- Page d'accueil ---------- */
+
+/* Le gris pâle va d'un bord à l'autre, sans espace au-dessus */
+.contenu {
+  flex: 1;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #eeeeee;
+}
+
+.accueil {
+  margin: 0 auto;
+  padding: 0;
+  background-color: white;
+}
+
+/* Image pleine largeur */
+.accueil-banniere {
+  position: relative;
+  width: 100%;
+  height: 15rem;
+  background-color: var(--color-aile);
+}
+
+.accueil-banniere-img {
+  object-fit: cover;
+}
+
+/* Conteneur des sections */
+.accueil-sections {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 1.5rem 1rem;
+}
+
+.accueil-titre {
+  margin-bottom: 0.5rem;
+  padding-left: 1rem;
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--color-encre);
+}
+
+/* "Notre mission" est à droite */
+.accueil-titre-droite {
+  text-align: right;
+  padding-left: 0;
+  padding-right: 1rem;
+}
+
+/* Les divs gris pâles */
+.accueil-boite {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  min-height: 10rem;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  background-color: #eeeeee;
+  color: var(--color-encre);
+}
+
+.accueil-bouton {
+  align-self: flex-end;
+  margin-top: auto;
+}
+
+
+.icone-abeille,
+.icone-marche {
+  width: 3rem;
+  height: 3rem;
+  fill: currentColor; /* prend la couleur du texte du bouton */
+}
+
+/* Les deux grosses icônes (les formes viennent du <path> dans le JSX) */
+.icone-abeille,
+.icone-marche {
+  width: 2rem;
+  height: 2rem;
+  fill: currentColor; /* même couleur que le texte du bouton */
+}
+
+/* Au survol du bouton, l'icône change avec lui */
+.btn-nav:hover,
+.btn-nav:hover {
+  transform: scale(1.1);
+  color: #fddd4a;
+}
+
+.btn-taille:hover {
+  color: black;
+  transform: scale(1.1);
+}
+
+h2 {
+  font-weight: bold !important;
+  color: var(--color-brule) !important;
+}
+
+/* ---------- Page Nos abeilles ---------- */
+
+/* La boîte grise devient une ligne : image + texte */
+.boite-image {
+  flex-direction: row;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+/* Image à droite : on inverse l'ordre */
+.boite-image-inverse {
+  flex-direction: row-reverse;
+}
+
+/* Toutes les images ont la même taille */
+.boite-image-photo {
+  position: relative;
+  flex-shrink: 0;
+  width: 12rem;
+  height: 12rem;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  background-color: var(--color-aile); /* en attendant la vraie photo */
+}
+
+.boite-image-texte {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Sur petit écran : l'image passe au-dessus du texte */
+@media (max-width: 600px) {
+  .boite-image,
+  .boite-image-inverse {
+    flex-direction: column;
   }
-  25% {
-    opacity: 1;
-    transform: scale(1.15) translateY(0);
-  }
-  70% {
-    opacity: 1;
-    transform: scale(1) translateY(0);
-  }
-  100% {
-    opacity: 0;
-    transform: scale(0.9) translateY(-6px);
+
+  .boite-image-photo {
+    width: 100%;
   }
 }
 
-.animate-badge-pop {
-  animation: badge-pop 700ms ease-out forwards;
+/* ---------- Page Nos produits ---------- */
+
+.stock-oui {
+  color: #2e7d32; /* vert */
+  font-weight: bold;
 }
 
+.stock-non {
+  color: #c62828; /* rouge */
+  font-weight: bold;
+}
