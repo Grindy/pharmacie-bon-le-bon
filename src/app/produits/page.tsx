@@ -11,7 +11,8 @@ const produits = [
     enStock: true,
     saison: "Été",
     annee: 2026,
-    commentaire: "J'acheterais tout le stock si je pouvais! -Jacques"
+    commentaire: "J'acheterais tout le stock si je pouvais! -Jacques",
+    badge: null,
   },
   {
     nom: "Miel barraté",
@@ -23,7 +24,8 @@ const produits = [
     enStock: true,
     saison: "Automne",
     annee: 2025,
-    commentaire: "Vraiment onctueux, la famille C-A-P-O-T-T-E! -Martine"
+    commentaire: "Vraiment onctueux, la famille C-A-P-O-T-T-E! -Martine",
+    badge: "Quantités limitées!",
   },
   {
     nom: "Caramel au miel",
@@ -35,7 +37,8 @@ const produits = [
     enStock: false,
     saison: "Été",
     annee: 2026,
-    commentaire: "Wowww! <3 -Monique"
+    commentaire: "Wowww! <3 -Monique",
+    badge: "Nouveau!",
   },
 ];
 
@@ -54,11 +57,23 @@ export default function Produits() {
       </section>
 
       <div className="accueil-sections">
+        <h3>N'oubliez pas de passer à la miellerie pour faire vos achats et nous dire un petit bonjour! Nous travaillons toujours sur la vente en ligne pour la prochaine saison! Au plaisir de vous voir!</h3>
         {produits.map((produit) => (
           <section key={produit.nom} className="accueil-section">
             <h2 className="accueil-titre">{produit.nom}</h2>
 
             <div className="accueil-boite boite-image">
+
+            {produit.badge && (
+              <span
+                className={
+                  produit.badge === "Nouveau!" ? "badge badge-nouveau" : "badge badge-urgent"
+                }
+              >
+                {produit.badge}
+              </span>)}
+
+
               <div className="boite-image-photo">
                 <Image
                   src={produit.image}

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import MiniJeu from "../components/Minijeu";
 
 type AccueilProps = {
   onNavigate: (page: "accueil" | "produits" | "abeilles") => void;
@@ -7,6 +8,7 @@ type AccueilProps = {
 export default function Accueil({ onNavigate }: AccueilProps) {
   return (
     <div className="accueil">
+      <MiniJeu/>
       {/* image sur toute la largeur */}
       <section className="accueil-banniere">
         <Image
